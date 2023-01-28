@@ -73,7 +73,7 @@
 			return false;
 		}
 		btn.attr('disabled', true);
-		btn.parent().append('<i class="icon16 loading">');
+		btn.parent().append('<div class="spinner"></div>');
 
 		$.post('?module=json&action=startover', {
 			id: $.cl.list_id
@@ -86,7 +86,7 @@
 			updateCount();
 			maybeStartOver();
 			btn.attr('disabled', false);
-			btn.siblings('.loading').remove();
+			btn.siblings('.spinner').remove();
 		}, 'json');
 		return false;
 	});
@@ -139,7 +139,7 @@
 		}
 
 		btn.attr('disabled', true);
-		btn.parent().append('<i class="icon16 loading">');
+		btn.parent().append('<div class="spinner custom-p-8"></div>');
 
 		$.post('?module=json&action=itemsave', {
 			list_id: $.cl.list_id,
@@ -148,7 +148,7 @@
 			item = item.data;
 			insertItem(item);
 			btn.attr('disabled', false);
-			btn.siblings('.loading').remove();
+			btn.siblings('.spinner').remove();
 			updateCount();
 			maybeStartOver();
 		}, 'json');
@@ -168,7 +168,7 @@
 	$(':checkbox', $('#c-checklist')[0]).die('change').live('change', function() {
 		var cbox = $(this);
 		var li = cbox.parents('#c-checklist li.item');
-		cbox.after('<i class="icon16 loading">').attr('disabled', true);
+		cbox.after('<div class="spinner"></div>').attr('disabled', true);
 
 		var data = {
 			id: cbox.attr('name'),

@@ -1,41 +1,44 @@
 {*
  * List items page.
  *}
-<div class="block double-padded c-list {$list.color_class}{if $can_edit} cl-editable{/if}">
-	{if $can_edit}
-		<ul class="menu-h float-right">
-			<li>
-				<a href="?action=editor&id={$list.id}"><i class="icon16 settings"></i>[`List settings`]</a>
-			</li>
-			<li>
-				<a href="#" id="deletelist"><i class="icon16 delete"></i>[`Delete`]</a>
-			</li>
-		</ul>
-	{/if}
+<div class="box contentbox flexbox content c-list {$list.color_class}{if $can_edit} cl-editable{/if}">
 
+  <div class="flexbox content left_area">
 	<h1 id="name">
 		<span>{$list.name|escape}</span>
 		{if $can_edit}
-			<a class="inline-link" id="add" href="#"><i class="icon16 add"></i></a>
+			<a id="add" href="#"><i class="icon16 add"></i></a>
 		{/if}
 	</h1>
 
-	<ul class="menu-v">
+	<ul class="menu">
 		{if $can_edit}
 			<li class="c-add-form" id="c-add-form">
 				<input type="text">
-				<input type="submit" value="[`Add`]">
+				<input type="submit" class="button" value="[`Add`]">
 			</li>
 		{/if}
 		<li class="c-start-over-form" id="c-start-over-form" style="display:none">
-			<input type="submit" value="[`Start over`]">
+			<input type="submit" class="button outlined light-gray small" value="[`Start over`]">
 		</li>
 	</ul>
 
-	<ul class="menu-v" id="c-checklist">
+	<ul class="menu" id="c-checklist">
 	</ul>
-
-	<div class="clear-left"></div>
+</div>
+	{if $can_edit}
+  <div class="flexbox content right_area">
+    <ul class="chips">
+			<li class="chips_li">
+				<a href="?action=editor&id={$list.id}"><i class="icon16 settings"></i>[`List settings`]</a>
+			</li>
+			<li class="chips_li">
+				<a href="#" id="deletelist"><i class="icon16 delete"></i>[`Delete`]</a>
+			</li>
+		</ul>
+  </div>
+		
+	{/if}
 </div>
 <script type="text/javascript">
 	// data for script have to be generated inside template
