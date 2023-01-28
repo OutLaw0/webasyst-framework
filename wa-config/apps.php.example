@@ -7,4 +7,5 @@ return array(
     'site' => true,
     'blog' => true,
     'photos' => true,
+    'ui' => true,
 );

@@ -2,18 +2,16 @@
  * List of available lists in sidebar.
  * Can be reordered via drag and drop if user has the right to create new lists.
  *}
-<div class="p-app-sidebar sidebar flexbox overflow-visible width-adaptive-wider mobile-friendly">
-	<ul class="menu" id="sidebar-lists">
+<div class="block c-sidebar">
+	<ul class="menu-v with-icons" id="sidebar-lists">
 		{foreach from=$lists item=l name=sb}
 			<li id="list{$l.id}" rel="{$l.sort}"{if !empty($l.current)} class="selected"{/if}>
-        
+				<span class="count" id="cnt{$l.id}">{$l.count}</span>
 				<a href="?action=list&id={$l.id}"
 					{if $smarty.foreach.sb.iteration lte 10}
 						{* !!! Hotkeys are experimental an will probably change in future *}
 						accesskey="{substr($smarty.foreach.sb.iteration, -1)}"
-					{/if}>{$l.icon}{$l.name|escape}
-          <span class="count" id="cnt{$l.id}">{$l.count}</span>
-        </a></li>
+					{/if}>{$l.icon}{$l.name|escape}</a></li>
 			</li>
 		{/foreach}
 		{if !$lists}
@@ -26,7 +24,7 @@
 		<ul class="menu-v with-icons compact" id="sidebar-new-list">
 			<li class="top-padded small">
 				{* !!! TODO: accesskeys are experimental *}
-				<a href="?action=editor" accesskey="n"><i class="icon16 add c-new-list"></i>[`New list`]</a>
+				<a href="?action=editor" accesskey="n"><i class="icon10 add c-new-list"></i>[`New list`]</a>
 			</li>
 		</ul>
 	{/if}

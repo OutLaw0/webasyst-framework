@@ -6,5 +6,5 @@ return array (
   'icon' => 'img/apiexplorer.svg',
   'version' => '1.0.4',
   'vendor'  => 'webasyst',
-  'ui'      => '2.0',
+  'ui' => '2.0',
 );

@@ -24,4 +24,5 @@ return array(
     'routing_params' => array(
         'blog_url_type' => 1,
     ),
+    'ui' => '1.3,2.0',
 );
