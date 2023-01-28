@@ -2,10 +2,10 @@
   * List settings page.
   *}
 <div class="block double-padded c-list {$list.color_class}">
-	<div class="fields form">
-    {if !$list.id}
+	{if !$list.id}
 		<h1>[`New list`]</h1>
 	{/if}
+	<div class="fields form">
 	  <div class="field-group">
 		<div class="field">
 			<div class="name bold">[`List name`]</div>
@@ -18,7 +18,7 @@
 		<div class="field">
 			<div class="name">[`Color`]</div>
 			<div class="value c-settings">
-				<ul class="chips" id="colors">
+				<ul class="menu-h" id="colors">
 					{foreach $colors as $c}
 						<li class="{$c}"><a href="#"><input name="c-list-settings-color" type="radio" value="{$c}"{if $c == $list.color_class} checked="true"{/if}></a></li>
 					{/foreach}
@@ -29,13 +29,13 @@
 		<div class="field">
 			<div class="name">[`Icon`]</div>
 			<div class="value c-list-icons">
-				<ul class="chips" id="icons">
+				<ul class="menu-h" id="icons">
 					{foreach $icons as $i}
 						<li{if $list.icon == $i} class="selected"{/if}><a href="#"><i class="icon16 {$i}"></i></a></li>
 					{/foreach}
 				</ul>
 				<span class="small">[`Or specify image URL (must be exactly 16x16 pixels):`]<br>
-					<input class="external-input" value="{if substr($list.icon, 0, 7) == 'http://'}{$list.icon}{else}http://{/if}" type="text" id="icon">
+					<input value="{if substr($list.icon, 0, 7) == 'http://'}{$list.icon}{else}http://{/if}" type="text" id="icon">
 				</span>
 			</div>
 		</div>
@@ -43,9 +43,9 @@
 	  <div class="field-group">
 		<div class="field">
 			<div class="value submit">
-				<input class="button" id="submit" value="[`Save`]" type="button">
+				<input class="button green" id="submit" value="[`Save`]" type="button">
 				{if $list.id}
-					[`or`] <a href="?action=list&id={$list.id}" class="link">[`go back to list`]</a>
+					[`or`] <a href="?action=list&id={$list.id}">[`go back to list`]</a>
 				{/if}
 			</div>
 		</div>

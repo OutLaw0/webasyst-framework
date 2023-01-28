@@ -61,7 +61,7 @@
 			}
 		}
 
-		$('#submit').attr('disabled', true).parent().append($('<i class="icon16 loading">'));
+		$('#submit').attr('disabled', true).parent().append($('<div class="spinner"></div>'));
 
 		var data = {
 			name: name,
